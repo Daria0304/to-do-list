@@ -1,9 +1,14 @@
-export const ToDoItem = () => {
+import { Button } from "../Button/Button";
+import styles from "./ToDoItem.module.css";
+
+export const ToDoItem = ({ name, done }) => {
   return (
-    <li>
-      <span>Pay bills</span>
-      <button>Done</button>
-      <button>Delete</button>
+    <li className={styles.item}>
+      <span className={`${styles.name} ${done ? styles.done : ""}`}>
+        {name}
+      </span>
+      {!done && <Button>Done</Button>}
+      <Button>Delete</Button>
     </li>
   );
 };
